@@ -102,7 +102,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'ecommerce_db',
-            'USER': 'postgres',
+            'USER': 'ad',
             'PASSWORD': 'postgres',
             'HOST': 'localhost',
             'PORT': '5432',
