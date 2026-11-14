@@ -102,7 +102,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'ecommerce_db',
-            'USER': 'ad',
+            'USER': 'postgres',
             'PASSWORD': 'postgres',
             'HOST': 'localhost',
             'PORT': '5432',
@@ -147,7 +147,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'style']
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
