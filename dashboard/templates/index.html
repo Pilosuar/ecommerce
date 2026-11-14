@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Productos - Mi Ecommerce{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Nuestros productos</h1>
+
+{% if productos %}
+    <div class="grid">
+        {% for producto in productos %}
+            <article class="card">
+                {% if producto.foto %}
+                    <img src="{{ producto.foto.url }}" alt="{{ producto.nombre }}" class="card-img">
+                {% else %}
+                    <div class="card-img card-img-placeholder">Sin imagen</div>
+                {% endif %}
+                <div class="card-body">
+                    {% if producto.categoria %}
+                        <span class="badge">{{ producto.categoria }}</span>
+                    {% endif %}
+                    <h2 class="card-title">{{ producto.nombre }}</h2>
+                    <p class="card-desc">{{ producto.descripcion|default:"Sin detalles disponibles." }}</p>
+                    <div class="card-footer">
+                        <span class="price">${{ producto.precio }}</span>
+                        <span class="stock">{{ producto.stock }} disp.</span>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty">
+        <p class="empty-icon">📦</p>
+        <h2>No hay productos todavía</h2>
+        <p>Agrega productos desde el <a href="{% url 'agregar' %}">dashboard</a>.</p>
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,250 @@
+/* Grid de productos */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.card-body {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.badge {
+    align-self: flex-start;
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.card-title {
+    font-size: 1.05rem;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: #6b7280;
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.price {
+    font-weight: 700;
+    color: #16a34a;
+    font-size: 1.05rem;
+}
+
+.stock {
+    font-size: 0.78rem;
+    color: #9ca3af;
+}
+
+/* Estado vacío */
+
+.empty {
+    text-align: center;
+    background: #fff;
+    border: 1px dashed #d1d5db;
+    border-radius: 10px;
+    padding: 3rem 1rem;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 0.6rem;
+}
+
+.empty h2 {
+    margin-bottom: 0.4rem;
+}
+
+.empty a {
+    color: #2563eb;
+}
+
+/* Dashboard */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 800px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-panel,
+.list-panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.4rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.form-panel h2,
+.list-panel h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.field {
+    margin-bottom: 0.9rem;
+}
+
+.field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    font-family: inherit;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.error {
+    color: #dc2626;
+    font-size: 0.78rem;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.form-errors {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.5rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 0.65rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.product-list {
+    list-style: none;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.thumb-placeholder {
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.92rem;
+}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Mi Ecommerce{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Dashboard de productos</h1>
+
+<section class="dashboard">
+    <div class="form-panel">
+        <h2>Agregar producto</h2>
+        <form method="post" enctype="multipart/form-data" class="producto-form">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="form-errors">{{ form.non_field_errors }}</div>
+            {% endif %}
+            {% for field in form %}
+                <div class="field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <span class="error">{{ field.errors|striptags }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn-primary">Guardar producto</button>
+        </form>
+    </div>
+
+    <div class="list-panel">
+        <h2>Productos ({{ productos|length }})</h2>
+        {% if productos %}
+            <ul class="product-list">
+                {% for producto in productos %}
+                    <li class="product-item">
+                        {% if producto.foto %}
+                            <img src="{{ producto.foto.url }}" alt="{{ producto.nombre }}" class="thumb">
+                        {% else %}
+                            <div class="thumb thumb-placeholder">📷</div>
+                        {% endif %}
+                        <div class="product-info">
+                            <strong>{{ producto.nombre }}</strong>
+                            <span class="muted">${{ producto.precio }} · stock: {{ producto.stock }}</span>
+                        </div>
+                        <form method="post" action="{% url 'eliminar' producto.id %}" onsubmit="return confirm('¿Eliminar {{ producto.nombre }}?');">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-danger">Eliminar</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="muted">Todavía no has agregado productos.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
