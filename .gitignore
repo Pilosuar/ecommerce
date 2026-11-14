@@ -1,0 +1,12 @@
+e.commerce_venv/
+__pycache__/
+*.pyc
+db.sqlite3
+staticfiles/
+Media/fotos/*
+!Media/fotos/.gitkeep
+*.log
+out.log
+err.log
+server.log
+server.err
